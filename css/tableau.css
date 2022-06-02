@@ -1,0 +1,128 @@
+:root{
+  --hbg-h: 240deg;
+  --hbg-s: 29%;
+  --caption-bg:      hsl(var(--hbg-h), var(--hbg-s), 98%);
+  --header-bg-color: hsl(var(--hbg-h), var(--hbg-s), 60%);
+  --grid-line-color-normal: hsl(var(--hbg-h), var(--hbg-s), 80%);
+  --grid-line-color-header: hsl(var(--hbg-h), var(--hbg-s), 50%);
+  --stripe-bg:       hsl(var(--hbg-h), var(--hbg-s), 95%);
+}
+
+table.tableau-table {
+
+  /* Reset all the mkdocs stuff */ 
+
+  & th, & td {
+    border-top: none;
+    border-bottom: none;
+  }
+
+  &.table-striped tbody tr:nth-of-type(odd) {
+    background-color: inherit;
+  }
+
+  width: auto;  
+  caption-side: bottom;
+
+  /* and now our stuff */
+
+  & caption {
+    margin-top: 0em;
+    padding: 0;
+    text-align: center;
+    font-size: 90%;
+    font-variant: all-small-caps;
+    background: var(--caption-bg);
+    border-bottom: 0.25px solid var(--grid-line-color-normal);
+  }
+
+
+  & td, & th {
+    padding: .25em 0.75em;
+  }
+
+  /* & thead tr:first-child th { */
+  /*     padding-top: .5em; */
+  /* } */
+
+  /* & thead tr:last-child th { */
+  /*     padding-bottom: .65em; */
+  /* } */
+
+  & th {
+    color: white;
+    background: var(--header-bg-color);
+    font-weight: 500;
+    font-size: 90%;
+  }
+
+  & th{
+    vertical-align: middle;
+  }
+
+  & p:first-child {
+    margin-top: 0;
+  }
+
+  & p:first-child {
+    margin-bottom: 0;
+  }
+
+  & .a-l, & .a-l {
+    text-align: left;
+  }
+
+  & .a-c, & .a-c {
+    text-align: center;
+  }
+
+  & .a-r, & .a-r {
+    text-align: right;
+  }
+
+  &.wide {
+    width: 100%;
+  }
+
+  &.hlines {
+    & tr:first-child {
+      & td {
+        border-top: 0.25px solid var(--grid-line-color-normal);
+      }
+      & th {
+        border-top: 0.25px solid var(--grid-line-color-header);
+      }
+    }
+    & td  {
+      border-bottom: 0.25px solid var(--grid-line-color-normal);
+    }
+    & th  {
+      border-bottom: 0.25px solid var(--grid-line-color-header);
+    }
+  }
+
+  &.vlines {
+    & tr:first-child {
+      & td {
+        border-top: 0.25px solid var(--grid-line-color-normal);
+      }
+      & th {
+        border-top: 0.25px solid var(--grid-line-color-header);
+      }
+    }
+
+    & td  {
+      border-right: 0.25px solid var(--grid-line-color-normal);
+    }
+    & th  {
+      border-right: 0.25px solid var(--grid-line-color-header);
+    }
+  }
+
+  /* this one is our version, not the default theme's */
+  &.striped tbody tr:nth-of-type(odd) {
+    background-color: var(--stripe-bg);
+  }
+
+}
+

@@ -1,0 +1,142 @@
+:root{
+  --hbg-h: 240deg;
+  --hbg-s: 29%;
+  --caption-bg:      hsl(var(--hbg-h) var(--hbg-s) 98%);
+  --header-bg-color: hsl(var(--hbg-h) var(--hbg-s) 60%);
+  --grid-line-color-normal: hsl(var(--hbg-h) var(--hbg-s) 80%);
+  --grid-line-color-header: hsl(var(--hbg-h) var(--hbg-s) 50%);
+  --stripe-bg:       hsl(var(--hbg-h) var(--hbg-s) 95%);
+}
+
+/* Reset all the mkdocs stuff */
+
+table.tableau-table th, table.tableau-table td {
+    border-top: none;
+    border-bottom: none;
+  }
+
+table.tableau-table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: inherit;
+  }
+
+table.tableau-table {
+
+  width: auto;  
+  caption-side: bottom
+
+  /* and now our stuff */
+
+}
+
+table.tableau-table caption {
+    margin-top: 0em;
+    padding: 0;
+    text-align: center;
+    font-size: 90%;
+    font-feature-settings: "smcp", "c2sc";
+    font-variant: all-small-caps;
+    background: hsl(240, 29%, 98%);
+    background: var(--caption-bg);
+    border-bottom: 0.25px solid hsl(240, 29%, 80%);
+    border-bottom: 0.25px solid var(--grid-line-color-normal);
+  }
+
+table.tableau-table td, table.tableau-table th {
+    padding: .25em 0.75em;
+  }
+
+/* & thead tr:first-child th { */
+
+/*     padding-top: .5em; */
+
+/* } */
+
+/* & thead tr:last-child th { */
+
+/*     padding-bottom: .65em; */
+
+/* } */
+
+table.tableau-table th {
+    color: white;
+    background: hsl(240, 29%, 60%);
+    background: var(--header-bg-color);
+    font-weight: 500;
+    font-size: 90%;
+  }
+
+table.tableau-table th{
+    vertical-align: middle;
+  }
+
+table.tableau-table p:first-child {
+    margin-top: 0;
+  }
+
+table.tableau-table p:first-child {
+    margin-bottom: 0;
+  }
+
+table.tableau-table .a-l, table.tableau-table .a-l {
+    text-align: left;
+  }
+
+table.tableau-table .a-c, table.tableau-table .a-c {
+    text-align: center;
+  }
+
+table.tableau-table .a-r, table.tableau-table .a-r {
+    text-align: right;
+  }
+
+table.tableau-table.wide {
+    width: 100%;
+  }
+
+table.tableau-table.hlines tr:first-child td {
+        border-top: 0.25px solid hsl(240, 29%, 80%);
+        border-top: 0.25px solid var(--grid-line-color-normal);
+      }
+
+table.tableau-table.hlines tr:first-child th {
+        border-top: 0.25px solid hsl(240, 29%, 50%);
+        border-top: 0.25px solid var(--grid-line-color-header);
+      }
+
+table.tableau-table.hlines td  {
+      border-bottom: 0.25px solid hsl(240, 29%, 80%);
+      border-bottom: 0.25px solid var(--grid-line-color-normal);
+    }
+
+table.tableau-table.hlines th  {
+      border-bottom: 0.25px solid hsl(240, 29%, 50%);
+      border-bottom: 0.25px solid var(--grid-line-color-header);
+    }
+
+table.tableau-table.vlines tr:first-child td {
+        border-top: 0.25px solid hsl(240, 29%, 80%);
+        border-top: 0.25px solid var(--grid-line-color-normal);
+      }
+
+table.tableau-table.vlines tr:first-child th {
+        border-top: 0.25px solid hsl(240, 29%, 50%);
+        border-top: 0.25px solid var(--grid-line-color-header);
+      }
+
+table.tableau-table.vlines td  {
+      border-right: 0.25px solid hsl(240, 29%, 80%);
+      border-right: 0.25px solid var(--grid-line-color-normal);
+    }
+
+table.tableau-table.vlines th  {
+      border-right: 0.25px solid hsl(240, 29%, 50%);
+      border-right: 0.25px solid var(--grid-line-color-header);
+    }
+
+/* this one is our version, not the default theme's */
+
+table.tableau-table.striped tbody tr:nth-of-type(odd) {
+    background-color: hsl(240, 29%, 95%);
+    background-color: var(--stripe-bg);
+  }
+

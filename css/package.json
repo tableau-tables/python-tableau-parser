@@ -1,0 +1,17 @@
+{
+  "name": "tabcss",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "build": "postcss tableau.css  --no-map -o ../docs/assets/css/tableau.css"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.14",
+    "postcss-cli": "^9.1.0",
+    "postcss-color-function": "^4.1.0",
+    "postcss-color-hcl": "^0.0.5",
+    "postcss-nesting": "^10.1.7",
+    "postcss-preset-env": "^7.7.0"
+  }
+}

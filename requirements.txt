@@ -1,0 +1,1 @@
+string-scanner @ git+https://github.com/sanscore/py-string-scanner.git@abad8e2d86d9d8a9f1
