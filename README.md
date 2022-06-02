@@ -16,7 +16,7 @@ An [extension][extensions] for Python's MarkdownX that adds support for
 
 ### Obligatory Eye Candy
 
-![Binary place values)[https://github.com/pragdave/mdx_tableau/blob/main/docs/assets/images/bit-position-table.png]
+![Binary place values](https://github.com/pragdave/mdx_tableau/blob/main/docs/assets/images/bit-position-table.png)
 
 ![Nutrition chart](https://github.com/pragdave/mdx_tableau/blob/main/docs/assets/images/nutrition.png)
 
