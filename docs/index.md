@@ -1,3 +1,4 @@
+
 # Tableau: Extended Table Creation
 
 Add features I needed to create tables for my courses, such as:
@@ -14,6 +15,7 @@ Features include:
 
 * Headerless tables
 * Multiline headers
+* Multiple separate headers
 * Headers in columns
 * Row and column span
 * Per cell alignment and CSS classes
@@ -300,6 +302,111 @@ table caption.
 Another example of table-level classes is the list of [format
 specifications](#tableau-format-specifications), which uses the CSS `stripe` class to
 get alternating row backgrounds.
+
+
+### Nutrition Facts
+
+One more example, showing a mockup of a nutrition facts panel. We use
+a CSS style to make the first and last columns bold (starting at the
+"Calories 200" line). 
+
+We use three more styles to draw light, medium, or
+bold lines under rows, and colspans both to indent subcategories and to
+control where lines are drawn. i
+
+Finally we use a table formatting line (the last line in the table) to
+both set a caption and to give the table a CSS class. We use that class
+both to draw a box around the table and to namespace our other styles.
+
+Here's the table markup:
+
+~~~ markdown
+|:< |< |> |
+|.ulb…  Serving Size 1/2 cup (about 82g)<br/>Servings Per Container 8 |{ |{ |
+|.ull… Amount Per Serving |{ |{ |
+|:.bold  | |.bold|
+|.ulm… Calories 200 |{ | Calories from Fat 130 |
+|.ull… | | % Daily Value |
+| Total Fat  |{                   | 22% |
+|  |.ull… Saturated Fat 9g   | 22% |
+|.ull…  | Trans Fat 0g       |  0% |
+|.ull… Cholesterol 55mg  |{  | 18% |
+|.ull… Sodium 40mg |{        |  2% |
+| Total Carbohydrate 17g |{       |  6% |
+|  |.ull… Dietary Fiber 1g   |  4% |
+|.ull…  | Sugars 14g         |  0% |
+|.ulm… Protein 3g |{ |
+|!.nutrition (from \
+   [examples of data tables](https://wpdatatables.com/examples-of-data-tables/)) |
+~~~
+
+The CSS styles are included inline in the Markdown:
+
+~~~ css
+<style>
+table.nutrition {
+  border: solid 6px #666;
+}
+table.nutrition .bold {
+    font-weight: bold;
+}
+
+table.nutrition .ull {
+    border-bottom: 1px solid #222;
+}
+
+table.nutrition .ulm {
+    border-bottom: 2px solid #333;
+}
+
+table.nutrition .ulb {
+    border-bottom: 8px solid #666;
+}
+</style>
+~~~
+
+And the result is:
+
+
+|:< |< |> |
+|.ulb…  Serving Size 1/2 cup (about 82g)<br/>Servings Per Container 8 |{ |{ |
+|.ull… Amount Per Serving |{ |{ |
+|:.bold  | |.bold|
+|.ulm… Calories 200 |{ | Calories from Fat 130 |
+|.ull… | | % Daily Value |
+| Total Fat  |{                   | 22% |
+|  |.ull… Saturated Fat 9g   | 22% |
+|.ull…  | Trans Fat 0g       |  0% |
+|.ull… Cholesterol 55mg  |{  | 18% |
+|.ull… Sodium 40mg |{        |  2% |
+| Total Carbohydrate 17g |{       |  6% |
+|  |.ull… Dietary Fiber 1g   |  4% |
+|.ull…  | Sugars 14g         |  0% |
+|.ulm… Protein 3g |{ |
+|!.nutrition (from \
+   [examples of data tables](https://wpdatatables.com/examples-of-data-tables/)) |
+
+<style>
+table.nutrition {
+  border: solid 6px #666;
+}
+table.nutrition .bold {
+    font-weight: bold;
+}
+
+table.nutrition .ull {
+    border-bottom: 1px solid #222;
+}
+
+table.nutrition .ulm {
+    border-bottom: 2px solid #333;
+}
+
+table.nutrition .ulb {
+    border-bottom: 8px solid #666;
+}
+</style>
+
 
 ## Formatting and CSS
 
