@@ -24,10 +24,7 @@ An [extension][extensions] for Python's MarkdownX that adds support for
 
 (for now)
 
-*
-  ~~~
-  pip install https://github.com/pragdave/mdx_tableau
-  ~~~
+* `pip install https://github.com/pragdave/mdx_tableau`
 
 * Add `mdx_tableau` to your list of Markdown extensions.
 

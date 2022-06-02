@@ -96,6 +96,7 @@ class TestTableauParse(unittest.TestCase):
             [ c("h", { "alignment": "<"}), c(""),c("", {"alignment": ">"}),  c(""), ]
         ])
 
+    
     def test_column_repeat_format_applies_to_subsequent_columns(self):
         block = "\n".join([
                     "| a |>… b | c | d |",
@@ -119,6 +120,20 @@ class TestTableauParse(unittest.TestCase):
         self.assertResult(result, [ 
             [ c("a"), c("b", right), c("c", right), c("d", left) ],
             [ c("h"), c(""), c(""), c("")    ]
+        ])
+
+    def test_column_repeat_works_in_format_lines(self):
+        block = "\n".join([
+                    "|:  |>…  |   |<  |",
+                    "| a | b  | c | d |",
+                    "| h |",
+                ])
+        result = tableau.to_ast(block)
+        right = { "alignment": ">"}
+        left  = { "alignment": "<"}
+        self.assertResult(result, [ 
+            [ c("a"), c("b", right), c("c", right), c("d", left) ],
+            [ c("h"), c("", right),  c("", right),  c("", left) ],
         ])
 
     def test_legacy_format_row_applies_alignment_to_subsequent_rows(self):

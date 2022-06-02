@@ -2,8 +2,6 @@ import re
 import xml.etree.ElementTree as etree
 from mdx_tableau.parser import parse_row
 
-################ end of parser #########################################
-
 LINE_CONTINUATION = re.compile(r'\\\n')
 
 def merge_continuation_lines(table):
@@ -147,8 +145,11 @@ class Result:
                 self.caption = caption
 
     def add_format_row(self, row):
-        for col, fmt in enumerate(row):
-            self.default_formats[col] = self.default_formats[col].merge(fmt)
+        row_format = []
+        for col in range(0, self.col_count):
+            fmt = row[col] if col < len(row) else []
+            self.default_formats[col] = self.default_formats[col].merge(row_format + fmt)
+            row_format += self.default_formats[col].propagate_formats
         
     def add_legacy_format_row(self, row):
         self.add_format_row(row)
