@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="None">
+        
+        
+        <link rel="shortcut icon" href="img/favicon.ico">
+        <title>Tableau: Extended Tables</title>
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css">
+        <link href="assets/css/tableau.css" rel="stylesheet">
+
+        <script src="js/jquery-1.10.2.min.js" defer></script>
+        <script src="js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body class="homepage">
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href=".">Tableau: Extended Tables</a>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#tableau-extended-table-creation" class="nav-link">Tableau: Extended Table Creation</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#basic-markup" class="nav-link">Basic Markup</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#multiple-header-lines" class="nav-link">Multiple Header Lines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#no-header-lines" class="nav-link">No Header Lines</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#no-format-line" class="nav-link">No Format Line</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#spanned-header-rows" class="nav-link">Spanned Header Rows</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#tableau-format-specifications" class="nav-link">Tableau Format Specifications</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#propagating-formats-along-a-row" class="nav-link">Propagating Formats Along a Row</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#propagating-formats-down-a-column" class="nav-link">Propagating Formats Down a Column</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#table-level-formatting" class="nav-link">Table Level Formatting</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#formatting-and-css" class="nav-link">Formatting and CSS</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="tableau-extended-table-creation">Tableau: Extended Table Creation</h1>
+<p>Add features I needed to create tables for my courses, such as:</p>
+<table class="tableau-table hlines vlines wide"><caption><p>How place values work in binary</p></caption><thead>
+<tr>
+<th class="a-l">
+<p>Bit position</p>
+</th>
+<th class="a-r">
+<p>7</p>
+</th>
+<th class="a-c">
+<p>6</p>
+</th>
+<th class="a-c">
+<p>5</p>
+</th>
+<th class="a-c">
+<p>4</p>
+</th>
+<th class="a-c">
+<p>3</p>
+</th>
+<th class="a-c">
+<p>2</p>
+</th>
+<th class="a-c">
+<p>1</p>
+</th>
+<th class="a-c">
+<p>0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="a-l">
+<p>Bits</p>
+</th>
+<td class="a-r">
+<p>1</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>1</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>1</p>
+</td>
+<td class="a-c">
+<p>1</p>
+</td>
+</tr>
+<tr>
+<th class="a-l" rowspan="2">
+<p>Place value</p>
+</th>
+<td class="a-r">
+<p><span class="arithmatex">\(2^7\)</span></p>
+</td>
+<td class="a-c">
+<p><span class="arithmatex">\(2^6\)</span></p>
+</td>
+<td class="a-c">
+<p><span class="arithmatex">\(2^5\)</span></p>
+</td>
+<td class="a-c">
+<p><span class="arithmatex">\(2^4\)</span></p>
+</td>
+<td class="a-c">
+<p><span class="arithmatex">\(2^3\)</span></p>
+</td>
+<td class="a-c">
+<p><span class="arithmatex">\(2^2\)</span></p>
+</td>
+<td class="a-c">
+<p><span class="arithmatex">\(2^1\)</span></p>
+</td>
+<td class="a-c">
+<p><span class="arithmatex">\(2^0\)</span></p>
+</td>
+</tr>
+<tr>
+<td class="a-r">
+<p>128</p>
+</td>
+<td class="a-c">
+<p>64</p>
+</td>
+<td class="a-c">
+<p>32</p>
+</td>
+<td class="a-c">
+<p>16</p>
+</td>
+<td class="a-c">
+<p>8</p>
+</td>
+<td class="a-c">
+<p>4</p>
+</td>
+<td class="a-c">
+<p>2</p>
+</td>
+<td class="a-c">
+<p>1</p>
+</td>
+</tr>
+<tr>
+<th class="a-l">
+<p>Bit x value</p>
+</th>
+<td class="a-r">
+<p>128</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>16</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>0</p>
+</td>
+<td class="a-c">
+<p>2</p>
+</td>
+<td class="a-c">
+<p>1</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Features include:</p>
+<ul>
+<li>Headerless tables</li>
+<li>Multiline headers</li>
+<li>Headers in columns</li>
+<li>Row and column span</li>
+<li>Per cell alignment and CSS classes</li>
+<li>Default attributes, both down columns and across rows</li>
+<li>Table-wide classes</li>
+<li>Caption</li>
+<li>Continuation lines</li>
+<li>Compatible (with two exceptions) with standard markdown tables</li>
+</ul>
+<h2 id="basic-markup">Basic Markup</h2>
+<p>A traditional markdown table might look like:</p>
+<pre><code class="language-md">| Country | Region       | Minimum Nos. | Probably Nos. | Speculative Nos. |
+|:--------|:-------------|-------------:|--------------:|-----------------:|
+| India   | Northern     |          750 |           875 |            1,000 |
+| India   | Northeastern |        7,200 |         9,250 |           11,300 |
+| Nepal   |              |           41 |            50 |               60 |
+</code></pre>
+<p>Columns are separated using pipe characters ("|"), and the second line both
+separated the headings from the table body and also gives the alignment of each
+of the columns.</p>
+<p>This table is also a valid tableau table. Formatted, it looks like this:</p>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-c">
+<p>Country</p>
+</th>
+<th class="a-c">
+<p>Region</p>
+</th>
+<th class="a-c">
+<p>Minimum Nos.</p>
+</th>
+<th class="a-c">
+<p>Probably Nos.</p>
+</th>
+<th class="a-c">
+<p>Speculative Nos.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northern</p>
+</td>
+<td class="a-r">
+<p>750</p>
+</td>
+<td class="a-r">
+<p>875</p>
+</td>
+<td class="a-r">
+<p>1,000</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northeastern</p>
+</td>
+<td class="a-r">
+<p>7,200</p>
+</td>
+<td class="a-r">
+<p>9,250</p>
+</td>
+<td class="a-r">
+<p>11,300</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>Nepal</p>
+</td>
+<td class="a-l"></td>
+<td class="a-r">
+<p>41</p>
+</td>
+<td class="a-r">
+<p>50</p>
+</td>
+<td class="a-r">
+<p>60</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>A tableau table is a markdown block where each line starts and ends with
+a pipe character. (This is different from conventional markdown tables,
+where the opening and closing pipes are sometimes optional.)</p>
+<h2 id="multiple-header-lines">Multiple Header Lines</h2>
+<pre><code>| Country | Region       | Minimum  | Probable | Speculative  |
+|         |              | Numbers  | Numbers  | Numbers      |
+|:--------|:-------------|---------:|---------:|-------------:|
+| India   | Northern     |      750 |      875 |        1,000 |
+| India   | Northeastern |    7,200 |    9,250 |       11,300 |
+| Nepal   |              |       41 |       50 |           60 |
+</code></pre>
+<p>Every line before the format line is considered a header.</p>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-c">
+<p>Country</p>
+</th>
+<th class="a-c">
+<p>Region</p>
+</th>
+<th class="a-c">
+<p>Minimum</p>
+</th>
+<th class="a-c">
+<p>Probable</p>
+</th>
+<th class="a-c">
+<p>Speculative</p>
+</th>
+</tr>
+<tr>
+<th class="a-c"></th>
+<th class="a-c"></th>
+<th class="a-c">
+<p>Numbers</p>
+</th>
+<th class="a-c">
+<p>Numbers</p>
+</th>
+<th class="a-c">
+<p>Numbers</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northern</p>
+</td>
+<td class="a-r">
+<p>750</p>
+</td>
+<td class="a-r">
+<p>875</p>
+</td>
+<td class="a-r">
+<p>1,000</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northeastern</p>
+</td>
+<td class="a-r">
+<p>7,200</p>
+</td>
+<td class="a-r">
+<p>9,250</p>
+</td>
+<td class="a-r">
+<p>11,300</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>Nepal</p>
+</td>
+<td class="a-l"></td>
+<td class="a-r">
+<p>41</p>
+</td>
+<td class="a-r">
+<p>50</p>
+</td>
+<td class="a-r">
+<p>60</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="no-header-lines">No Header Lines</h2>
+<pre><code>|:--------|:-------------|---------:|---------:|-------------:|
+| India   | Northern     |      750 |      875 |        1,000 |
+| India   | Northeastern |    7,200 |    9,250 |       11,300 |
+| Nepal   |              |       41 |       50 |           60 |
+</code></pre>
+<table class="tableau-table">
+<tbody>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northern</p>
+</td>
+<td class="a-r">
+<p>750</p>
+</td>
+<td class="a-r">
+<p>875</p>
+</td>
+<td class="a-r">
+<p>1,000</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northeastern</p>
+</td>
+<td class="a-r">
+<p>7,200</p>
+</td>
+<td class="a-r">
+<p>9,250</p>
+</td>
+<td class="a-r">
+<p>11,300</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>Nepal</p>
+</td>
+<td class="a-l"></td>
+<td class="a-r">
+<p>41</p>
+</td>
+<td class="a-r">
+<p>50</p>
+</td>
+<td class="a-r">
+<p>60</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="no-format-line">No Format Line</h2>
+<pre><code>| India   | Northern     |      750 |      875 |        1,000 |
+| India   | Northeastern |    7,200 |    9,250 |       11,300 |
+| Nepal   |              |       41 |       50 |           60 |
+</code></pre>
+<table class="tableau-table">
+<tbody>
+<tr>
+<td class="a-c">
+<p>India</p>
+</td>
+<td class="a-c">
+<p>Northern</p>
+</td>
+<td class="a-c">
+<p>750</p>
+</td>
+<td class="a-c">
+<p>875</p>
+</td>
+<td class="a-c">
+<p>1,000</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p>India</p>
+</td>
+<td class="a-c">
+<p>Northeastern</p>
+</td>
+<td class="a-c">
+<p>7,200</p>
+</td>
+<td class="a-c">
+<p>9,250</p>
+</td>
+<td class="a-c">
+<p>11,300</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p>Nepal</p>
+</td>
+<td class="a-c"></td>
+<td class="a-c">
+<p>41</p>
+</td>
+<td class="a-c">
+<p>50</p>
+</td>
+<td class="a-c">
+<p>60</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="spanned-header-rows">Spanned Header Rows</h2>
+<pre><code>| Country | Region       | Minimum  | Probable | Speculative  |
+|^        |^             | Numbers  | Numbers  | Numbers      |
+|:--------|:-------------|---------:|---------:|-------------:|
+| India   | Northern     |      750 |      875 |        1,000 |
+| India   | Northeastern |    7,200 |    9,250 |       11,300 |
+| Nepal   |              |       41 |       50 |           60 |
+</code></pre>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-c" rowspan="2">
+<p>Country</p>
+</th>
+<th class="a-c" rowspan="2">
+<p>Region</p>
+</th>
+<th class="a-c">
+<p>Minimum</p>
+</th>
+<th class="a-c">
+<p>Probable</p>
+</th>
+<th class="a-c">
+<p>Speculative</p>
+</th>
+</tr>
+<tr>
+<th class="a-c">
+<p>Numbers</p>
+</th>
+<th class="a-c">
+<p>Numbers</p>
+</th>
+<th class="a-c">
+<p>Numbers</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northern</p>
+</td>
+<td class="a-r">
+<p>750</p>
+</td>
+<td class="a-r">
+<p>875</p>
+</td>
+<td class="a-r">
+<p>1,000</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northeastern</p>
+</td>
+<td class="a-r">
+<p>7,200</p>
+</td>
+<td class="a-r">
+<p>9,250</p>
+</td>
+<td class="a-r">
+<p>11,300</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>Nepal</p>
+</td>
+<td class="a-l"></td>
+<td class="a-r">
+<p>41</p>
+</td>
+<td class="a-r">
+<p>50</p>
+</td>
+<td class="a-r">
+<p>60</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tableau-format-specifications">Tableau Format Specifications</h2>
+<p>In the preceding table, the two cells at the start of the second row are
+merged with the cells above. This is done using the up-arrow format
+specification.</p>
+<p>Every cell in a tableau table can have one or more format
+specifications. They must immediately follow the cell's opening pipe,
+with no intervening spaces.</p>
+<p>The valid format specifications are:</p>
+<table class="tableau-table striped">
+<tbody>
+<tr>
+<td class="a-c">
+<p><code>^</code></p>
+</td>
+<td class="a-l">
+<p>Merge this cell with the one above it. Multiple cells in a column may be merged</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p><code>{</code></p>
+</td>
+<td class="a-l">
+<p>Merge this cell with the one to its left. Multiple cells in a row may be merged</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p><code>&lt;</code></p>
+</td>
+<td class="a-l">
+<p>Left align this cell</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p><code>=</code></p>
+</td>
+<td class="a-l">
+<p>Center this cell</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p><code>&gt;</code></p>
+</td>
+<td class="a-l">
+<p>Right align this cell</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p><code>#</code></p>
+</td>
+<td class="a-l">
+<p>Make this cell a header (use <code>&lt;th&gt;</code>)</p>
+</td>
+</tr>
+<tr>
+<td class="a-c">
+<p><code>.class</code></p>
+</td>
+<td class="a-l">
+<p>Apply the CSS class to this cell</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>The two span specifications (<code>^</code> and <code>{</code>) must appear alone (as the cell
+formatting is taken from the cell above or to the left). Otherwise, a
+format specification can contain an optional alignment specifier, an
+optional heading specifier, and zero or more class specifiers. These
+three types of specifier can appear in any order: </p>
+<pre><code class="language-markdown">|&lt;#.warn.big Note |.info&gt; Meaning |
+</code></pre>
+<p>The first cell is a left-aligned heading cell with the CSS classes <code>warn</code> and <code>big</code>, while
+the second is a right-aligned cell with the class <code>info</code>.</p>
+<h2 id="propagating-formats-along-a-row">Propagating Formats Along a Row</h2>
+<p>Any format specification can be followed by an ellipsis (either three
+periods <code>...</code> or a Unicode ellipsis, <code>…</code>). This format will then be
+propagated as a default to subsequent cells in the same row. </p>
+<p>For example, a tableau header row can be created using:</p>
+<pre><code class="language-markdown">|# Country |# Region       |# Minimum Nos. |# Probably Nos. |# Speculative Nos. |
+| ...      |
+</code></pre>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-c">
+<p>Country</p>
+</th>
+<th class="a-c">
+<p>Region</p>
+</th>
+<th class="a-c">
+<p>Minimum Nos.</p>
+</th>
+<th class="a-c">
+<p>Probably Nos.</p>
+</th>
+<th class="a-c">
+<p>Speculative Nos.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-c">
+<p>...</p>
+</td>
+<td class="a-c"></td>
+<td class="a-c"></td>
+<td class="a-c"></td>
+<td class="a-c"></td>
+</tr>
+</tbody>
+</table>
+<p>You can also use the heading specifier on just the first column, and use
+an ellipsis to propagate it.</p>
+<pre><code class="language-markdown">|#… Country |Region       |Minimum Nos. |Probably Nos. |Speculative Nos. |
+| ...      |
+</code></pre>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-c">
+<p>Country</p>
+</th>
+<th class="a-c">
+<p>Region</p>
+</th>
+<th class="a-c">
+<p>Minimum Nos.</p>
+</th>
+<th class="a-c">
+<p>Probably Nos.</p>
+</th>
+<th class="a-c">
+<p>Speculative Nos.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-c">
+<p>...</p>
+</td>
+<td class="a-c"></td>
+<td class="a-c"></td>
+<td class="a-c"></td>
+<td class="a-c"></td>
+</tr>
+</tbody>
+</table>
+<p>The propagated format is just a default: it can be overridden in any
+subsequent cell.</p>
+<pre><code class="language-markdown">|#...&gt;... Animal 1 | Animal 1 | Animal 1 | Animal 1 | Animal 1 |
+|&gt;... ant | bee |&lt;cat | dog | elk |
+</code></pre>
+<table class="tableau-table vlines">
+<thead>
+<tr>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-r">
+<p>ant</p>
+</td>
+<td class="a-r">
+<p>bee</p>
+</td>
+<td class="a-l">
+<p>cat</p>
+</td>
+<td class="a-r">
+<p>dog</p>
+</td>
+<td class="a-r">
+<p>elk</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>You can even override it in the cell that initially propagates it:</p>
+<pre><code class="language-markdown">|#...&gt;... Animal 1 | Animal 1 | Animal 1 | Animal 1 | Animal 1 |
+|&gt;...&lt; ant | bee |&lt;cat | dog | elk |
+</code></pre>
+<table class="tableau-table vlines">
+<thead>
+<tr>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+<th class="a-r">
+<p>Animal 1</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-l">
+<p>ant</p>
+</td>
+<td class="a-r">
+<p>bee</p>
+</td>
+<td class="a-l">
+<p>cat</p>
+</td>
+<td class="a-r">
+<p>dog</p>
+</td>
+<td class="a-r">
+<p>elk</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="propagating-formats-down-a-column">Propagating Formats Down a Column</h2>
+<p>Any tableau row that starts <code>|:</code> is a format row. We've already seen
+a version of this:</p>
+<pre><code class="language-md">| Country | Region       | Minimum Nos. | Probably Nos. | Speculative Nos. |
+|:--------|:-------------|-------------:|--------------:|-----------------:|
+| India   | Northern     |          750 |           875 |            1,000 |
+| India   | Northeastern |        7,200 |         9,250 |           11,300 |
+| Nepal   |              |           41 |            50 |               60 |
+</code></pre>
+<p>The <code>:---</code> specifier in the first cell of line two is conventional
+markdown for "subsequent cells in this column should be left aligned".</p>
+<p>You can specify the sme thing using tableau format specifiers:</p>
+<pre><code class="language-md">|#... Country | Region       | Minimum Nos. | Probably Nos. | Speculative Nos. |
+|:&lt;           |&lt;             |&gt;...          |               |                  |
+| India       | Northern     |          750 |           875 |            1,000 |
+| India       | Northeastern |        7,200 |         9,250 |           11,300 |
+| Nepal       |              |           41 |            50 |               60 |
+</code></pre>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-c">
+<p>Country</p>
+</th>
+<th class="a-c">
+<p>Region</p>
+</th>
+<th class="a-c">
+<p>Minimum Nos.</p>
+</th>
+<th class="a-c">
+<p>Probably Nos.</p>
+</th>
+<th class="a-c">
+<p>Speculative Nos.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northern</p>
+</td>
+<td class="a-r">
+<p>750</p>
+</td>
+<td class="a-c">
+<p>875</p>
+</td>
+<td class="a-c">
+<p>1,000</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northeastern</p>
+</td>
+<td class="a-r">
+<p>7,200</p>
+</td>
+<td class="a-c">
+<p>9,250</p>
+</td>
+<td class="a-c">
+<p>11,300</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>Nepal</p>
+</td>
+<td class="a-l"></td>
+<td class="a-r">
+<p>41</p>
+</td>
+<td class="a-c">
+<p>50</p>
+</td>
+<td class="a-c">
+<p>60</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>By moving the format line above the header, you can align it, too:</p>
+<pre><code class="language-md">|:&lt;           |&lt;             |&gt;...          |               |                  |
+|#... Country | Region       | Minimum Nos. | Probably Nos. | Speculative Nos. |
+| India       | Northern     |          750 |           875 |            1,000 |
+| India       | Northeastern |        7,200 |         9,250 |           11,300 |
+| Nepal       |              |           41 |            50 |               60 |
+</code></pre>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-l">
+<p>Country</p>
+</th>
+<th class="a-l">
+<p>Region</p>
+</th>
+<th class="a-r">
+<p>Minimum Nos.</p>
+</th>
+<th class="a-c">
+<p>Probably Nos.</p>
+</th>
+<th class="a-c">
+<p>Speculative Nos.</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northern</p>
+</td>
+<td class="a-r">
+<p>750</p>
+</td>
+<td class="a-c">
+<p>875</p>
+</td>
+<td class="a-c">
+<p>1,000</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>India</p>
+</td>
+<td class="a-l">
+<p>Northeastern</p>
+</td>
+<td class="a-r">
+<p>7,200</p>
+</td>
+<td class="a-c">
+<p>9,250</p>
+</td>
+<td class="a-c">
+<p>11,300</p>
+</td>
+</tr>
+<tr>
+<td class="a-l">
+<p>Nepal</p>
+</td>
+<td class="a-l"></td>
+<td class="a-r">
+<p>41</p>
+</td>
+<td class="a-c">
+<p>50</p>
+</td>
+<td class="a-c">
+<p>60</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Here's another example that makes both the first row and first column
+into headers.</p>
+<pre><code class="language-markdown">|: #&lt;            | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     |
+|#… Bit position | 7     | 6     | 5     | 4     | 3     | 2     | 1     | 0     |
+| Bits           | 1     | 0     | 0     | 1     | 0     | 0     | 1     | 1     |
+| Place value    | $2^7$ | $2^6$ | $2^5$ | $2^4$ | $2^3$ | $2^2$ | $2^1$ | $2^0$ |
+|^               | 128   | 64    | 32    | 16    | 8     | 4     | 2     |     1 |
+| Bit x value    | 128   |  0    |  0    | 16    | 0     | 0     | 2     |     1 |
+</code></pre>
+<table class="tableau-table">
+<thead>
+<tr>
+<th class="a-l">
+<p>Bit position</p>
+</th>
+<th class="a-r">
+<p>7</p>
+</th>
+<th class="a-r">
+<p>6</p>
+</th>
+<th class="a-r">
+<p>5</p>
+</th>
+<th class="a-r">
+<p>4</p>
+</th>
+<th class="a-r">
+<p>3</p>
+</th>
+<th class="a-r">
+<p>2</p>
+</th>
+<th class="a-r">
+<p>1</p>
+</th>
+<th class="a-r">
+<p>0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="a-l">
+<p>Bits</p>
+</th>
+<td class="a-r">
+<p>1</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+</tr>
+<tr>
+<th class="a-l" rowspan="2">
+<p>Place value</p>
+</th>
+<td class="a-r">
+<p><span class="arithmatex">\(2^7\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^6\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^5\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^4\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^3\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^2\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^1\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^0\)</span></p>
+</td>
+</tr>
+<tr>
+<td class="a-r">
+<p>128</p>
+</td>
+<td class="a-r">
+<p>64</p>
+</td>
+<td class="a-r">
+<p>32</p>
+</td>
+<td class="a-r">
+<p>16</p>
+</td>
+<td class="a-r">
+<p>8</p>
+</td>
+<td class="a-r">
+<p>4</p>
+</td>
+<td class="a-r">
+<p>2</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+</tr>
+<tr>
+<th class="a-l">
+<p>Bit x value</p>
+</th>
+<td class="a-r">
+<p>128</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>16</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>2</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="table-level-formatting">Table Level Formatting</h2>
+<p>A line starting <code>|!</code> can be used to add CSS classes and/or a caption to
+the table.</p>
+<pre><code class="language-markdown">|!.hlines.vlines.wide How place values work in binary |
+|: #&lt;            | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     | &gt;     |
+|#… Bit position | 7     | 6     | 5     | 4     | 3     | 2     | 1     | 0     |
+| Bits           | 1     | 0     | 0     | 1     | 0     | 0     | 1     | 1     |
+| Place value    | $2^7$ | $2^6$ | $2^5$ | $2^4$ | $2^3$ | $2^2$ | $2^1$ | $2^0$ |
+|^               | 128   | 64    | 32    | 16    | 8     | 4     | 2     |     1 |
+| Bit x value    | 128   |  0    |  0    | 16    | 0     | 0     | 2     |     1 |
+</code></pre>
+<p>The three classes add horizontal and vertical lines to the table and
+force it to be a full column wide. Any text after the format becomes the 
+table caption.</p>
+<table class="tableau-table hlines vlines wide"><caption><p>How place values work in binary</p></caption><thead>
+<tr>
+<th class="a-l">
+<p>Bit position</p>
+</th>
+<th class="a-r">
+<p>7</p>
+</th>
+<th class="a-r">
+<p>6</p>
+</th>
+<th class="a-r">
+<p>5</p>
+</th>
+<th class="a-r">
+<p>4</p>
+</th>
+<th class="a-r">
+<p>3</p>
+</th>
+<th class="a-r">
+<p>2</p>
+</th>
+<th class="a-r">
+<p>1</p>
+</th>
+<th class="a-r">
+<p>0</p>
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<th class="a-l">
+<p>Bits</p>
+</th>
+<td class="a-r">
+<p>1</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+</tr>
+<tr>
+<th class="a-l" rowspan="2">
+<p>Place value</p>
+</th>
+<td class="a-r">
+<p><span class="arithmatex">\(2^7\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^6\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^5\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^4\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^3\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^2\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^1\)</span></p>
+</td>
+<td class="a-r">
+<p><span class="arithmatex">\(2^0\)</span></p>
+</td>
+</tr>
+<tr>
+<td class="a-r">
+<p>128</p>
+</td>
+<td class="a-r">
+<p>64</p>
+</td>
+<td class="a-r">
+<p>32</p>
+</td>
+<td class="a-r">
+<p>16</p>
+</td>
+<td class="a-r">
+<p>8</p>
+</td>
+<td class="a-r">
+<p>4</p>
+</td>
+<td class="a-r">
+<p>2</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+</tr>
+<tr>
+<th class="a-l">
+<p>Bit x value</p>
+</th>
+<td class="a-r">
+<p>128</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>16</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>0</p>
+</td>
+<td class="a-r">
+<p>2</p>
+</td>
+<td class="a-r">
+<p>1</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Another example of table-level classes is the list of <a href="#tableau-format-specifications">format
+specifications</a>, which uses the CSS <code>stripe</code> class to
+get alternating row backgrounds.</p>
+<h2 id="formatting-and-css">Formatting and CSS</h2>
+<p>Unlike most markdown table formatters, tableau uses CSS classes and not
+inline markup to format tables. The stylesheet I used to format this
+document can be found in <a href="">docs/assets/css/tableau</a> (and a version
+using Postcss' preset-env can be found in the project's <code>css</code> directory.)</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = ".",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="js/base.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+        <script src="search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
+
+<!--
+MkDocs version : 1.3.0
+Build Date UTC : 2022-06-02 00:38:16.872796+00:00
+-->
