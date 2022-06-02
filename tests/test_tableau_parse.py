@@ -1,8 +1,8 @@
+import unittest
+
 import sys
 import os
-
 sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-import unittest
 from  mdx_tableau import tableau
 
 def c(content, format={}):
