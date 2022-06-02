@@ -1,6 +1,6 @@
 # Enhanced Table Markup for Python's Markdown
 
-![assets/images/bit-position-table.png](Example of row and column headings, and row spanning)
+An [extension][extensions] for Python's MarkdownX that adds support for
 
 * Headerless tables
 * Multiline headers
@@ -14,7 +14,26 @@
 * Continuation lines
 * Compatible (with two exceptions) with standard markdown tables
 
-[https://pragdave.me/mdx_tableau/](documentation)
+### Obligatory Eye Candy
+
+![Binary place values)[https://github.com/pragdave/mdx_tableau/blob/main/docs/assets/images/bit-position-table.png]
+
+![Nutrition chart](https://github.com/pragdave/mdx_tableau/blob/main/docs/assets/images/nutrition.png)
+
+### Installation
+
+(for now)
+
+*
+  ~~~
+  pip install https://github.com/pragdave/mdx_tableau
+  ~~~
+
+* Add `mdx_tableau` to your list of Markdown extensions.
+
+* Read the [documentation](https://pragdave.me/mdx_tableau/)
+
+---
 
 License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
 
