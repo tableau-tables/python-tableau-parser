@@ -1,37 +1,56 @@
-# Enhanced Table Markup for Python's Markdown
+# Extended Table Syntax for Markdown
 
-An [extension][extensions] for Python's MarkdownX that adds support for
+[Tableau Tables](https://tableau-tables.github.io) gives you way more control 
+over the tables you create in Markdown documents. `tableau-marked` is the version of Tableau 
+for the Python Markdown processor.
+
+#### Headers
 
 * Headerless tables
 * Multiline headers
 * Multiple separate headers
-* Headers in columns
-* Row and column span
+* Headers in columns and rows
+* Captions
+
+#### Layout
+
+* Layout uses CSS styles and not inline attributes (making it easier to
+  change the style of a whole document)
 * Per cell alignment and CSS classes
 * Default attributes, both down columns and across rows
 * Table-wide classes
-* Caption
+* Row and column span
 * Continuation lines
-* Compatible (with two exceptions) with standard markdown tables
 
-### Obligatory Eye Candy
+Here are [some samples](https://tableau-tables.github.io/samples/).
 
-![Binary place values](https://github.com/pragdave/mdx_tableau/blob/main/docs/assets/images/bit-position-table.png)
+## Installation
 
-![Nutrition chart](https://github.com/pragdave/mdx_tableau/blob/main/docs/assets/images/nutrition.png)
 
-### Installation
+1. Install the extension:
 
-(for now)
+    ~~~ console
+    $ pip install git+https://github.com/tableau-tables/python-tableau-parser
+    ~~~
 
-* `pip install https://github.com/pragdave/mdx_tableau`
+    (once things have settled it'll be moved to PyPl.)
 
-* Add `mdx_tableau` to your list of Markdown extensions.
+2. Add it to your list of Markdown extensions
 
-* Read the [documentation](https://pragdave.me/mdx_tableau/)
+   ~~~ python
+   markdown.markdown(your_documenti, extensions=[..., 'python-tableau-parser', ...])
+   ~~~
 
----
+   If you're using mkdocs, simply add it to the list of extensions in `mkdocs.yml`:
 
-License: [BSD](http://www.opensource.org/licenses/bsd-license.php)
+   ~~~ yaml
+   markdown_extensions:
+      - def_list
+      - python-tableau-parser
+      - pymdownx.superfences
+      :       :
+  ~~~
 
-[extensions]: https://python-markdown.github.io/extensions/
+## Writing Tables Using Tableau Tables
+
+Pop on over to the [documentation site](https://tableau-tables.github.io).
