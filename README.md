@@ -49,7 +49,7 @@ Here are [some samples](https://tableau-tables.github.io/samples/).
       - python-tableau-parser
       - pymdownx.superfences
       :       :
-  ~~~
+   ~~~
 
 ## Writing Tables Using Tableau Tables
 
