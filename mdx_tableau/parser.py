@@ -14,6 +14,7 @@ def unknown_table_row(row):
 
 def parse_row(row):
     row = StringScanner(row.strip())
+
     result = ( legacy_format_row(row) 
             or new_format_row(row) 
             or table_title_row(row)
@@ -109,10 +110,10 @@ def cell_content(row):
     return result 
 
 def cell_fragment(row):
-    return (row.scan(r'`[^`]+`')   or  # inline code
+    return (row.scan(r'[^`$|\\]+') or  # regular characters
+            row.scan(r'`[^`]+`')   or  # inline code
             row.scan(r'\$[^$]+\$') or  # inline math
-            row.scan(r'\\|')       or  # escaped pipe
-            row.scan(r'[^`$|]+'))
+            row.scan(r'\\\|'))           # escaped pipe
 
 def maybe_modifiers(row):
     span = span_modifier(row)

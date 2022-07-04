@@ -70,6 +70,19 @@ class TestTableauParse(unittest.TestCase):
             [ c("g"), c(""),  c("")  ],
         ])
 
+    def test_table_escapes_pipe(self):
+        block = "\n".join([
+                    "| a   | b   | c |",
+                    "| d \\| e   | f |",
+                    "| g   | h \\| i | j |",
+                ])
+        result = tableau.to_ast(block)
+        self.assertResult(result, [ 
+            [ c("a"),        c("b"),        c("c")  ],
+            [ c("d \\| e"),  c("f"),        c("") ],
+            [ c("g"),        c("h \\| i"),  c("j")  ],
+        ])
+
     def test_format_row_included_in_padding(self):
         block = "\n".join([
                     "| a | b |",
